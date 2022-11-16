@@ -3,7 +3,6 @@
     "title_essay": "论文标题",
     "subtitle_essay": "论文子标题",
     "author_essay": "论文作者",
-    "language": ["english", "chinese"],
     "paper_size": ["a4paper", "a5paper"],
     "output_filename": "essay.pdf"
 }
