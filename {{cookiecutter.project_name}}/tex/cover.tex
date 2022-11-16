@@ -1,15 +1,15 @@
-% Start generating the title page *%
+% 开始生成标题页面 *%
 \begin{titlepage}
 
-  % All content will be centered within this page %
+  % 所有内容将居中在这个页面内 %
   \begin{center}
 
-    % Use Cinnabar color for title %
+    % 标题使用朱砂色 %
     \definecolor{titlecolor}{rgb}{0.89, 0.26, 0.2}
 
-    % Title of the essay %
+    % 论文标题 %
     {
-      % Apply font size and color %
+      % 字体和颜色 %
       \fontsize{60pt}{70pt}\selectfont
       \textcolor{titlecolor}
         {
@@ -18,22 +18,22 @@
 	\\[2cm]
     }
 
-    % Subtitle of the essay %
+    % 论文子标题 %
     \textsc{\huge
 	  {{cookiecutter.subtitle_essay}}
     }
     \\[4cm]
 
-    % Add cover logo %
+    % 添加封面logo %
     \begin{figure}[h]
       \centering
       \includegraphics[width=12cm]{logo.png}
     \end{figure}
 
-    % Add some vertical padding %
+    % 添加一些垂直填充 %
     \vspace{1.5cm}
 
-    % Author of the essay %
+    % 论文作者额 %
     \textsc{\Large
       {{cookiecutter.author_essay}}
     }
