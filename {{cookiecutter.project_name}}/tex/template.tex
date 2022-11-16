@@ -26,12 +26,20 @@
             urlcolor=blue,
             linkcolor=black]{hyperref}
 
-\usepackage{microtype} % 为了美观，稍微调整一下字体间距
+% 为了美观，稍微调整一下字体间距%
+\usepackage{microtype} 
+
 
 {%- if cookiecutter.language == "chinese" -%}
-    \usepackage{xeCJK} % 语言连字符和排版规则
+% 为了美观，稍微调整一下字体间距 %
+
+\usepackage{xeCJK} 
+
 {%- elif cookiecutter.language == "english" -%}
-    \usepackage[english]{babel} % 语言连字符和排版规则
+
+% 语言连字符和排版规则 %
+\usepackage[english]{babel} 
+
 {% endif %}
 
 % 所有图形实用程序的路径 %
@@ -60,8 +68,8 @@
 \addto\captionsenglish{
   \renewcommand{\contentsname}{目录}
 }
-\addto\captionsdanish{
-  \renewcommand{\contentsname}{Indholdsfortegnelse}
+\addto\captionschinese{
+  \renewcommand{\contentsname}{目录}
 }
 
 % 语法高亮显示所需 %
