@@ -1,13 +1,13 @@
 % !TEX TS-program = xelatex
 % !TEX encoding = UTF-8 Unicode
 
-% Define document font, paper size and type %
+% 定义文件字体、纸张大小和类型 %
 \documentclass[12pt,{{cookiecutter.paper_size}}]{scrreprt}
 
-% Custom commands %
+% 自定义命令 %
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
-% Packages to be used %
+% 使用的包 %
 \usepackage{fontspec}
 \usepackage{eurosym}
 \usepackage{amssymb}
@@ -26,20 +26,28 @@
             urlcolor=blue,
             linkcolor=black]{hyperref}
 
-% Path for all graphic utilities %
+\usepackage{microtype} % 为了美观，稍微调整一下字体间距
+
+{%- if cookiecutter.language == "chinese" -%}
+    \usepackage{xeCJK} % 语言连字符和排版规则
+{%- elif cookiecutter.language == "english" -%}
+    \usepackage[english]{babel} % 语言连字符和排版规则
+{% endif %}
+
+% 所有图形实用程序的路径 %
 \usepackage{graphicx}
 \graphicspath{
 	{fig/}
 }
 
-% Fix listing errors
+% 修复list错误
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% Number figures, tables and equations within sections %
+% 数字数字，表格和方程式的章节 %
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
 
-% Properly place figures, similar to {figure}[h] %
+% 正确放置图形，类似于{figure}[h] %
 \usepackage{float}
 \let\origfigure\figure
 \let\endorigfigure\endfigure
@@ -49,8 +57,8 @@
     \endorigfigure
 }
 
-{%- if cookiecutter.language == "spanish" -%}
-\setmainlanguage{spanish}
+{%- if cookiecutter.language == "chinese" -%}
+\setmainlanguage{chinese}
 
 {%- elif cookiecutter.language == "english" -%}
 \setmainlanguage{english}
@@ -58,34 +66,34 @@
 {% endif %}
 
 \addto\captionsenglish{
-  \renewcommand{\contentsname}{Table of Contents}
+  \renewcommand{\contentsname}{目录}
 }
 \addto\captionsdanish{
   \renewcommand{\contentsname}{Indholdsfortegnelse}
 }
 
-% Required for syntax highlighting %
+% 语法高亮显示所需 %
 $highlighting-macros$
 
-% Don't let images overflow the page %
-% Can still explicit set width/height/options for an image %
+% 不要让图片溢出页面 %
+% 仍然可以显式设置宽度/高度/选项的图像 %
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
 \makeatother
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
-% Make links footnotes instead of hotlinks %
+% 把链接做成脚注而不是热链接 %
 
-% Avoid problems with \sout in headers with hyperref %
+% 使用hyperref避免头文件中\sout的问题 %
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 
-% No paragraph indentation and set space between paragraphs %
+% 没有段落缩进，并在段落之间设置空格 %
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setlength{\emergencystretch}{3em}  % 防止过多的行
 
-% Enable references and bibliography
+% 启用引用和参考
 $if(csl-refs)$
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
@@ -95,27 +103,27 @@ $if(csl-refs)$
   {\par}
 $endif$
 
-%--- DOCUMENT IS DEFINED BELOW THIS LINE ---%
+%--- 文档定义在这一行下面 ---%
 \begin{document}
 
-% Switch off page numbering %
+% 关闭页码 %
 \pagenumbering{gobble}
 
-% Append cover and prologue to actual document %
+% 在实际文档的后面加上封面和序言 %
 \input{tex/cover}
 \input{tex/prologue}
 
-% Controls document content depth by changing number: 0="chapter", 1="section" %
+% 通过更改编号来控制文档内容深度: 0="chapter", 1="section" %
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
-% Start the table of contents and page numbering %
+% 开始目录和页码 %
 \tableofcontents
 
-% Turn on again page numbering %
+% 再次打开页码 %
 \pagenumbering{arabic}
 
-% Add rest of content source files %
+% 添加其余的内容源文件 %
 $body$
 
 \end{document}
