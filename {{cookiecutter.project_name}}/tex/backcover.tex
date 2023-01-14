@@ -1,0 +1,63 @@
+
+%----------------------------------------------------------------------------------------
+%	封底
+%----------------------------------------------------------------------------------------
+
+% 如果您有一个PDF/图像文件，想要用作封底，取消注释以下行
+\newpage
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+\node [align=left] at (current page.north) % upper
+        {\begin{tikzpicture}[remember picture, overlay]
+                                                    %   0表示顶部 对角线顶点
+    \fill[fill={rgb,255:red,255; green,33; blue,33}] (-20, 0) rectangle (20, -0.5);
+    \end{tikzpicture}};
+\end{tikzpicture}
+\setlength\parindent{0ex}
+
+\setlength\parindent{0ex}
+\begin{adjustwidth}{0.5in}{0in}
+	\begin{center}
+	{\Huge{\textbf{\textsf{读者点评}}}}
+	
+	\vspace*{0.4cm}
+	
+	% {\Large{\textsf{来自}}}
+	\end{center}
+	
+	\vspace*{0.2cm}
+	
+    \textsf{\textbf{火葱AI实验室} -- 这是一本值得好好学习的书，当你一步一步深入书中的内容时，你会学到不少东西。
+    }
+	\vspace*{0.1cm}
+	\begin{center}
+	---------------------------------------------------------------------------------
+	\end{center}
+	\vspace*{0.1cm}
+	
+	\includegraphics[width=0.4\textwidth]{logo.png}%
+	%\vspace*{-67mm}
+	\hspace*{0.1\textwidth}%
+	\includegraphics[width=0.39\textwidth]{logo.png}
+		
+	\textsf{\textbf{火葱AI实验室} 是一家创业型工作室，专注于AI技术的开发、传播等。}
+\end{adjustwidth}
+
+
+\begin{adjustwidth}{0.5in}{0in}
+% \begin{center}
+%     \vspace*{9mm}
+%     \includegraphics[width=15mm]{PressLogo.png}\par%
+%     \vspace*{-1mm}\hspace*{-1mm}\textbf{\textit{火葱AIAM实验室发布}}\par
+% \end{center}
+\begin{flushright}
+    \vspace*{9mm}
+    
+    % \includegraphics[width=15mm]{PressLogo.png}\par%
+    \vspace*{-1mm}\hspace*{-1mm}\textbf{火葱AIAM实验室发布}\par
+
+    \vspace*{0.2mm}
+    \includegraphics[width=70mm]{weixin.png}%
+\end{flushright}
+\end{adjustwidth}
